@@ -2,7 +2,7 @@
 
 Diese Schritte verbinden `weberpappdesign.art` mit der GitHub-Pages-Seite.
 
-GitHub Pages ist im Repository bereits fuer Branch `main` und Ordner `/ (root)` aktiviert. Die folgenden GitHub-Schritte dienen zur Kontrolle, die DNS-Schritte musst du beim Domain-Anbieter setzen.
+GitHub Pages ist im Repository bereits fuer Branch `main` und Ordner `/ (root)` aktiviert. Aktuell ist die Custom Domain noch nicht aktiv, damit die Seite direkt ueber die GitHub-Pages-Adresse erreichbar bleibt.
 
 1. Beim Domain-Anbieter die DNS-Verwaltung fuer `weberpappdesign.art` oeffnen.
 2. Fuer die Hauptdomain vier A-Records anlegen:
@@ -34,9 +34,16 @@ GitHub Pages ist im Repository bereits fuer Branch `main` und Ordner `/ (root)` 
 7. Unter `Build and deployment` als Source `Deploy from a branch` waehlen.
 8. Branch `main` und Ordner `/ (root)` auswaehlen, dann speichern.
 9. Unter `Custom domain` exakt `weberpappdesign.art` eintragen und speichern.
-10. Warten, bis GitHub die DNS-Pruefung abgeschlossen hat. Das kann wenige Minuten bis 24 Stunden dauern.
-11. Sobald verfuegbar, `Enforce HTTPS` aktivieren.
+10. Lokal im Repository eine Datei `CNAME` mit exakt diesem Inhalt anlegen:
 
-Die Datei `CNAME` ist bereits im Repository enthalten. Dadurch bleibt die Custom Domain auch nach spaeteren Deployments gesetzt.
+```text
+weberpappdesign.art
+```
+
+11. Die Datei committen und nach GitHub pushen.
+12. Warten, bis GitHub die DNS-Pruefung abgeschlossen hat. Das kann wenige Minuten bis 24 Stunden dauern.
+13. Sobald verfuegbar, `Enforce HTTPS` aktivieren.
+
+Die Datei `CNAME` erst dann hinzufuegen, wenn `weberpappdesign.art` wirklich auf GitHub Pages zeigen soll. Ohne diese Datei bleibt die Seite unter der Standardadresse `https://georgefejer91.github.io/weberpappdesign.art/` erreichbar.
 
 Quelle fuer die DNS-Werte: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site

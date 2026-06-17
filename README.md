@@ -7,7 +7,7 @@ Minimalistische statische Website fuer WEBER PAPPDESIGN.
 - `assets/box-images/hero.svg` und `assets/box-images/box-01.svg` bis `box-09.svg`: die aus der PDF-Quelle extrahierten Produktbilder als einzelne SVG-Assets.
 - `assets/part-2.mp4`: Teil 2 als optimiertes MP4.
 - HTML/CSS: Produkttext, Preistabelle, Kontakt und Impressumszeilen als echte Courier-Textstruktur.
-- `CNAME`: GitHub-Pages-Domain `weberpappdesign.art`.
+- Kein `CNAME` im Repository, solange die Seite direkt ueber GitHub Pages erreichbar bleiben soll.
 
 Die PDF-Schrift wurde mit `pdffonts` und `pdftohtml` identifiziert: der eingebettete TrueType-Subset heisst `NQCISD+Courier`, also ist die Schriftfamilie `Courier`. Die Website nutzt deshalb Courier als erste Schrift im Stack.
 
