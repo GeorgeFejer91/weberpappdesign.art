@@ -35,21 +35,32 @@
     <main class="site" aria-label="WEBER PAPPDESIGN">
       <h1 class="sr-only">WEBER PAPPDESIGN</h1>
 
-      <div class="sequence" data-media-sequence>
-        <figure class="media-block" style="--media-native-width: 800px; --media-aspect: 800 / 800;">
-          <img
-            class="media"
-            src="assets/part-1.svg"
-            width="800"
-            height="800"
-            alt="WEBER-Boxen: Produktansichten und Beschreibung der handgefertigten Wellpappeboxen."
-            data-fit-media
-            data-alt-de="WEBER-Boxen: Produktansichten und Beschreibung der handgefertigten Wellpappeboxen."
-            data-alt-en="WEBER boxes: product views and description of the handmade corrugated cardboard boxes."
-          >
-        </figure>
+      <div class="sequence">
+        <section class="product-sheet" aria-labelledby="product-title">
+          <img class="hero-image" src="assets/box-images/hero.svg" width="948" height="226" alt="WEBER box detail with logo">
 
-        <figure class="media-block" style="--media-native-width: 684px; --media-aspect: 684 / 432;">
+          <h2 class="product-title" id="product-title" data-i18n="productTitle">WEBER-Boxen</h2>
+          <p class="intro-copy" data-i18n="intro">
+            Stabile, zugleich leichte und in Handarbeit hergestellte Wellpappeboxen zur Aufbewahrung und Präsentation von gerahmten Bildern in verschiedenen Standardgrößen.
+          </p>
+          <p class="example-copy" data-i18n="example">Beispiel: 30x40/S</p>
+
+          <div class="box-grid" aria-label="WEBER-Boxen Produktbilder">
+            <img src="assets/box-images/box-01.svg" width="600" height="450" alt="Geschlossene WEBER-Box von oben">
+            <img src="assets/box-images/box-02.svg" width="600" height="450" alt="Seitliche Beschriftung einer WEBER-Box">
+            <img src="assets/box-images/box-03.svg" width="600" height="450" alt="Geöffnete WEBER-Box mit gerahmtem Bild">
+            <img src="assets/box-images/box-04.svg" width="600" height="450" alt="Detail einer geöffneten WEBER-Box">
+            <img src="assets/box-images/box-05.svg" width="600" height="450" alt="Gerahmtes Bild in einer WEBER-Box">
+            <img src="assets/box-images/box-06.svg" width="600" height="450" alt="Innenkante einer WEBER-Box">
+            <img src="assets/box-images/box-07.svg" width="600" height="450" alt="Ecke einer WEBER-Box">
+            <img src="assets/box-images/box-08.svg" width="600" height="450" alt="Rahmendetail in einer WEBER-Box">
+            <img src="assets/box-images/box-09.svg" width="600" height="450" alt="Gerahmtes Bild in geschlossener Anordnung">
+          </div>
+        </section>
+
+        <p class="video-label" data-i18n="videoLabel">Anwendungsvideo:</p>
+
+        <figure class="media-block video-block" style="--media-native-width: 548px; --media-aspect: 684 / 432;">
           <video
             class="media"
             src="assets/part-2.mp4"
@@ -65,20 +76,48 @@
           ></video>
         </figure>
 
-        <figure class="media-block contact-sheet" style="--media-native-width: 800px; --media-aspect: 800 / 600;">
-          <img
-            class="media"
-            src="assets/part-3.svg"
-            width="800"
-            height="600"
-            alt="Standardformate, Preise und Kontakt fuer WEBER PAPPDESIGN."
-            data-fit-media
-            data-alt-de="Standardformate, Preise und Kontakt fuer WEBER PAPPDESIGN."
-            data-alt-en="Standard formats, prices and contact details for WEBER PAPPDESIGN."
-          >
-          <a class="email-link email-link-main" href="mailto:info@weberpappdesign.art" aria-label="E-Mail an info@weberpappdesign.art schreiben" data-email-link></a>
-          <a class="email-link email-link-footer" href="mailto:info@weberpappdesign.art" aria-label="E-Mail an info@weberpappdesign.art schreiben" data-email-link></a>
-        </figure>
+        <section class="price-sheet" aria-labelledby="price-title">
+          <h2 class="price-title" id="price-title" data-i18n="priceTitle">Standardformate / Preise (EUR)</h2>
+
+          <div class="price-box">
+            <table class="price-table">
+              <thead>
+                <tr>
+                  <th data-i18n="sizeHeader">Bildgröße</th>
+                  <th data-i18n="netHeader">Netto(EUR)</th>
+                  <th data-i18n="vatHeader">inkl.MwSt.</th>
+                  <th data-i18n="sizeHeader">Bildgröße</th>
+                  <th data-i18n="netHeader">Netto(EUR)</th>
+                  <th data-i18n="vatHeader">inkl.MwSt.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>18x24</td><td>34,00</td><td>40,46</td><td>50x60</td><td>75,00</td><td>89,25</td></tr>
+                <tr><td>24x30</td><td>45,00</td><td>53,55</td><td>50x70</td><td>83,00</td><td>98,77</td></tr>
+                <tr><td>30x40</td><td>55,00</td><td>65,45</td><td>60x80</td><td>97,00</td><td>115,43</td></tr>
+                <tr><td>40x50</td><td>65,00</td><td>77,35</td><td>70x100</td><td>115,00</td><td>136,85</td></tr>
+              </tbody>
+            </table>
+
+            <div class="frame-notes">
+              <p data-i18n="frameM">M: max.Rahmenbreite 3cm / Rahmenhöhe 3,3cm</p>
+              <p data-i18n="frameS">S: max.Rahmenbreite 2cm / Rahmenhöhe 2,2cm</p>
+            </div>
+          </div>
+
+          <p class="shipping-note" data-i18n="shipping">zzgl.Versand und Verpackung</p>
+
+          <div class="contact-block">
+            <p data-i18n="contact">Kontakt unter:</p>
+            <a class="contact-email" href="mailto:info@weberpappdesign.art" data-email-link>info@weberpappdesign.art</a>
+          </div>
+
+          <footer class="legal-footer">
+            <p>WEBER PAPPDESIGN, Christian Weber,Schwanhardtstraße 25,90478 Nürnberg,Tel.0911/4622566</p>
+            <p><a class="footer-email" href="mailto:info@weberpappdesign.art" data-email-link>info@weberpappdesign.art</a></p>
+            <p data-i18n="legal">USt-IdNr.:DE458879028, Einzelunternehmer: Christian Weber</p>
+          </footer>
+        </section>
       </div>
     </main>
 
