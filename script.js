@@ -1,8 +1,12 @@
 const root = document.documentElement;
 const themeSwitch = document.querySelector("[data-theme-switch]");
 const languageSwitch = document.querySelector("[data-language-switch]");
+const imageZoom = document.querySelector("[data-image-zoom]");
+const imageZoomImg = document.querySelector("[data-image-zoom-img]");
 const themeKey = "weberpappdesign:theme";
 const languageKey = "weberpappdesign:language";
+let imageZoomTimer;
+let imageZoomCloseTimer;
 
 const copy = {
   de: {
@@ -135,6 +139,43 @@ function setLanguage(language) {
   remember(languageKey, nextLanguage);
 }
 
+function closeImageZoom() {
+  if (!imageZoom || imageZoom.hidden) {
+    return;
+  }
+
+  clearTimeout(imageZoomTimer);
+  clearTimeout(imageZoomCloseTimer);
+  imageZoom.classList.remove("is-open");
+  imageZoom.setAttribute("aria-hidden", "true");
+
+  imageZoomCloseTimer = setTimeout(() => {
+    imageZoom.hidden = true;
+    imageZoomImg.removeAttribute("src");
+  }, 220);
+}
+
+function openImageZoom(tile) {
+  const image = tile.querySelector("img");
+
+  if (!imageZoom || !imageZoomImg || !image) {
+    return;
+  }
+
+  clearTimeout(imageZoomTimer);
+  clearTimeout(imageZoomCloseTimer);
+  imageZoomImg.src = image.currentSrc || image.src;
+  imageZoomImg.alt = image.alt;
+  imageZoom.hidden = false;
+  imageZoom.setAttribute("aria-hidden", "false");
+
+  requestAnimationFrame(() => {
+    imageZoom.classList.add("is-open");
+  });
+
+  imageZoomTimer = setTimeout(closeImageZoom, 10000);
+}
+
 initializeMediaFit();
 setTheme(root.classList.contains("is-dark") ? "dark" : "light");
 setLanguage(currentLanguage());
@@ -145,4 +186,16 @@ themeSwitch.addEventListener("click", () => {
 
 languageSwitch.addEventListener("click", () => {
   setLanguage(currentLanguage() === "de" ? "en" : "de");
+});
+
+document.querySelectorAll(".box-tile").forEach((tile) => {
+  tile.addEventListener("click", () => openImageZoom(tile));
+});
+
+imageZoom?.addEventListener("click", closeImageZoom);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeImageZoom();
+  }
 });

@@ -46,15 +46,15 @@
           <p class="example-copy" data-i18n="example">Beispiel: 30x40/S</p>
 
           <div class="box-grid" aria-label="WEBER-Boxen Produktbilder">
-            <img src="assets/box-images/box-01.svg" width="600" height="450" alt="Geschlossene WEBER-Box von oben">
-            <img src="assets/box-images/box-02.svg" width="600" height="450" alt="Seitliche Beschriftung einer WEBER-Box">
-            <img src="assets/box-images/box-03.svg" width="600" height="450" alt="Geöffnete WEBER-Box mit gerahmtem Bild">
-            <img src="assets/box-images/box-04.svg" width="600" height="450" alt="Detail einer geöffneten WEBER-Box">
-            <img src="assets/box-images/box-05.svg" width="600" height="450" alt="Gerahmtes Bild in einer WEBER-Box">
-            <img src="assets/box-images/box-06.svg" width="600" height="450" alt="Innenkante einer WEBER-Box">
-            <img src="assets/box-images/box-07.svg" width="600" height="450" alt="Ecke einer WEBER-Box">
-            <img src="assets/box-images/box-08.svg" width="600" height="450" alt="Rahmendetail in einer WEBER-Box">
-            <img src="assets/box-images/box-09.svg" width="600" height="450" alt="Gerahmtes Bild in geschlossener Anordnung">
+            <button class="box-tile" type="button" aria-label="Bild vergrößern: Geschlossene WEBER-Box von oben"><img src="assets/box-images/box-01.svg" width="600" height="450" alt="Geschlossene WEBER-Box von oben"></button>
+            <button class="box-tile" type="button" aria-label="Bild vergrößern: Seitliche Beschriftung einer WEBER-Box"><img src="assets/box-images/box-02.svg" width="600" height="450" alt="Seitliche Beschriftung einer WEBER-Box"></button>
+            <button class="box-tile" type="button" aria-label="Bild vergrößern: Geöffnete WEBER-Box mit gerahmtem Bild"><img src="assets/box-images/box-03.svg" width="600" height="450" alt="Geöffnete WEBER-Box mit gerahmtem Bild"></button>
+            <button class="box-tile" type="button" aria-label="Bild vergrößern: Detail einer geöffneten WEBER-Box"><img src="assets/box-images/box-04.svg" width="600" height="450" alt="Detail einer geöffneten WEBER-Box"></button>
+            <button class="box-tile" type="button" aria-label="Bild vergrößern: Gerahmtes Bild in einer WEBER-Box"><img src="assets/box-images/box-05.svg" width="600" height="450" alt="Gerahmtes Bild in einer WEBER-Box"></button>
+            <button class="box-tile" type="button" aria-label="Bild vergrößern: Innenkante einer WEBER-Box"><img src="assets/box-images/box-06.svg" width="600" height="450" alt="Innenkante einer WEBER-Box"></button>
+            <button class="box-tile" type="button" aria-label="Bild vergrößern: Ecke einer WEBER-Box"><img src="assets/box-images/box-07.svg" width="600" height="450" alt="Ecke einer WEBER-Box"></button>
+            <button class="box-tile" type="button" aria-label="Bild vergrößern: Rahmendetail in einer WEBER-Box"><img src="assets/box-images/box-08.svg" width="600" height="450" alt="Rahmendetail in einer WEBER-Box"></button>
+            <button class="box-tile" type="button" aria-label="Bild vergrößern: Gerahmtes Bild in geschlossener Anordnung"><img src="assets/box-images/box-09.svg" width="600" height="450" alt="Gerahmtes Bild in geschlossener Anordnung"></button>
           </div>
         </section>
 
@@ -120,6 +120,10 @@
         </section>
       </div>
     </main>
+
+    <div class="image-zoom" data-image-zoom hidden aria-hidden="true">
+      <img class="image-zoom-media" data-image-zoom-img alt="">
+    </div>
 
     <script src="script.js"></script>
   </body>

@@ -98,11 +98,25 @@ body {
   gap: 10px;
 }
 
+.box-tile {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #ffffff;
+  cursor: zoom-in;
+}
+
 .box-grid img {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   object-position: center;
   background: #ffffff;
+}
+
+.box-tile:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
 }
 
 .video-label {
@@ -334,6 +348,47 @@ video.media {
   border: 0;
 }
 
+.image-zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 5vw, 48px);
+  background: rgba(255, 255, 255, 0.84);
+  opacity: 0;
+  transition: opacity 180ms ease;
+  cursor: zoom-out;
+}
+
+:root.is-dark .image-zoom {
+  background: rgba(5, 5, 5, 0.76);
+}
+
+.image-zoom[hidden] {
+  display: none;
+}
+
+.image-zoom.is-open {
+  opacity: 1;
+}
+
+.image-zoom-media {
+  display: block;
+  width: auto;
+  max-width: min(88vw, 920px);
+  max-height: 82vh;
+  background: #ffffff;
+  opacity: 0;
+  transform: scale(0.68);
+  transition: transform 260ms ease, opacity 160ms ease;
+}
+
+.image-zoom.is-open .image-zoom-media {
+  opacity: 1;
+  transform: scale(1);
+}
+
 @media (max-width: 540px) {
   :root {
     --gutter: 10px;
@@ -433,7 +488,9 @@ video.media {
 
 @media (prefers-reduced-motion: reduce) {
   .contact-email::after,
-  .footer-email::after {
+  .footer-email::after,
+  .image-zoom,
+  .image-zoom-media {
     transition: none;
   }
 }
