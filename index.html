@@ -11,32 +11,73 @@
     <title>WEBER PAPPDESIGN</title>
     <script>
       try {
-        if (localStorage.getItem("weberpappdesign:inverted") === "1") {
-          document.documentElement.classList.add("is-inverted");
+        if (localStorage.getItem("weberpappdesign:theme") === "dark") {
+          document.documentElement.classList.add("is-dark");
+        }
+
+        const savedLanguage = localStorage.getItem("weberpappdesign:language");
+        if (savedLanguage === "en") {
+          document.documentElement.lang = "en";
         }
       } catch (_) {}
     </script>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <button class="invert-toggle" type="button" aria-pressed="false" data-invert-toggle>Invertieren</button>
+    <div class="controls" aria-label="Seiteneinstellungen">
+      <button class="language-switch" type="button" data-language-switch data-lang="de" aria-label="Switch to English">
+        <span data-lang-option="de">DE</span>
+        <span data-lang-option="en">EN</span>
+      </button>
+      <button class="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Farbmodus wechseln" data-theme-switch></button>
+    </div>
 
     <main class="site" aria-label="WEBER PAPPDESIGN">
       <h1 class="sr-only">WEBER PAPPDESIGN</h1>
 
-      <div class="sequence">
-        <figure class="media-block">
-          <img class="media" src="assets/part-1.svg" width="800" height="800" alt="WEBER-Boxen: Produktansichten und Beschreibung der handgefertigten Wellpappeboxen.">
+      <div class="sequence" data-media-sequence>
+        <figure class="media-block" style="--media-native-width: 800px; --media-aspect: 800 / 800;">
+          <img
+            class="media"
+            src="assets/part-1.svg"
+            width="800"
+            height="800"
+            alt="WEBER-Boxen: Produktansichten und Beschreibung der handgefertigten Wellpappeboxen."
+            data-fit-media
+            data-alt-de="WEBER-Boxen: Produktansichten und Beschreibung der handgefertigten Wellpappeboxen."
+            data-alt-en="WEBER boxes: product views and description of the handmade corrugated cardboard boxes."
+          >
         </figure>
 
-        <figure class="media-block">
-          <video class="media" src="assets/part-2.mp4" width="684" height="432" controls playsinline preload="metadata" aria-label="Anwendungsvideo der WEBER-Boxen"></video>
+        <figure class="media-block" style="--media-native-width: 684px; --media-aspect: 684 / 432;">
+          <video
+            class="media"
+            src="assets/part-2.mp4"
+            width="684"
+            height="432"
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Anwendungsvideo der WEBER-Boxen"
+            data-fit-media
+            data-label-de="Anwendungsvideo der WEBER-Boxen"
+            data-label-en="Application video for the WEBER boxes"
+          ></video>
         </figure>
 
-        <figure class="media-block contact-sheet">
-          <img class="media" src="assets/part-3.svg" width="800" height="600" alt="Standardformate, Preise und Kontakt fuer WEBER PAPPDESIGN.">
-          <a class="email-link email-link-main" href="mailto:info@weberpappdesign.art" aria-label="E-Mail an info@weberpappdesign.art schreiben"></a>
-          <a class="email-link email-link-footer" href="mailto:info@weberpappdesign.art" aria-label="E-Mail an info@weberpappdesign.art schreiben"></a>
+        <figure class="media-block contact-sheet" style="--media-native-width: 800px; --media-aspect: 800 / 600;">
+          <img
+            class="media"
+            src="assets/part-3.svg"
+            width="800"
+            height="600"
+            alt="Standardformate, Preise und Kontakt fuer WEBER PAPPDESIGN."
+            data-fit-media
+            data-alt-de="Standardformate, Preise und Kontakt fuer WEBER PAPPDESIGN."
+            data-alt-en="Standard formats, prices and contact details for WEBER PAPPDESIGN."
+          >
+          <a class="email-link email-link-main" href="mailto:info@weberpappdesign.art" aria-label="E-Mail an info@weberpappdesign.art schreiben" data-email-link></a>
+          <a class="email-link email-link-footer" href="mailto:info@weberpappdesign.art" aria-label="E-Mail an info@weberpappdesign.art schreiben" data-email-link></a>
         </figure>
       </div>
     </main>

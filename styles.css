@@ -1,13 +1,17 @@
 :root {
   --background: #ffffff;
   --text: #050505;
-  --page-width: 980px;
+  --control-background: #ffffff;
+  --control-border: #050505;
+  --page-width: 800px;
   --gutter: clamp(10px, 4vw, 48px);
 }
 
-:root.is-inverted {
+:root.is-dark {
   --background: #050505;
   --text: #ffffff;
+  --control-background: #050505;
+  --control-border: #ffffff;
   color-scheme: dark;
 }
 
@@ -30,7 +34,7 @@ body {
 
 .site {
   min-height: 100vh;
-  padding: clamp(64px, 8vw, 96px) 0 clamp(20px, 5vw, 64px);
+  padding: clamp(72px, 8vw, 96px) 0 clamp(20px, 5vw, 64px);
 }
 
 .sequence {
@@ -43,49 +47,95 @@ body {
 
 .media-block {
   position: relative;
+  width: min(100%, var(--media-native-width, 800px));
   margin: 0;
+  aspect-ratio: var(--media-aspect, auto);
+  justify-self: center;
 }
 
 .media {
   display: block;
   width: 100%;
   height: auto;
+  max-width: 100%;
+  aspect-ratio: var(--media-aspect, auto);
+  object-fit: contain;
+  object-position: center;
   border: 0;
   background: #ffffff;
 }
 
 video.media {
-  aspect-ratio: 684 / 432;
   background: #f3f3f3;
 }
 
-:root.is-inverted .media {
-  filter: invert(1);
-}
-
-.invert-toggle {
+.controls {
   position: fixed;
   z-index: 10;
   top: clamp(12px, 2vw, 24px);
   right: clamp(12px, 2vw, 24px);
-  min-width: 118px;
-  height: 40px;
-  padding: 0 14px;
-  border: 1px solid #000000;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.theme-switch,
+.language-switch {
+  border: 1px solid var(--control-border);
   border-radius: 6px;
-  background: #ffffff;
-  color: #000000;
-  font: 14px/1 "Courier New", "Nimbus Mono PS", monospace;
+  background: var(--control-background);
+  color: var(--text);
   cursor: pointer;
 }
 
-:root.is-inverted .invert-toggle {
-  border-color: #ffffff;
-  background: #000000;
-  color: #ffffff;
+.theme-switch {
+  position: relative;
+  width: 58px;
+  height: 30px;
+  padding: 3px;
+  background: linear-gradient(90deg, #ffffff 0 50%, #050505 50% 100%);
 }
 
-.invert-toggle:focus-visible,
+.theme-switch::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  background: #050505;
+  transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease;
+}
+
+:root.is-dark .theme-switch::before {
+  transform: translateX(26px);
+  border-color: #050505;
+  background: #ffffff;
+}
+
+.language-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 74px;
+  height: 30px;
+  padding: 0;
+  overflow: hidden;
+  font: 13px/1 "Courier New", "Nimbus Mono PS", monospace;
+}
+
+.language-switch span {
+  display: grid;
+  place-items: center;
+}
+
+.language-switch[data-lang="de"] [data-lang-option="de"],
+.language-switch[data-lang="en"] [data-lang-option="en"] {
+  background: var(--text);
+  color: var(--background);
+}
+
+.theme-switch:focus-visible,
+.language-switch:focus-visible,
 .email-link:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
@@ -129,7 +179,7 @@ video.media {
   }
 
   .site {
-    padding-top: 60px;
+    padding-top: 62px;
     padding-bottom: 18px;
   }
 
@@ -137,10 +187,28 @@ video.media {
     gap: 14px;
   }
 
-  .invert-toggle {
-    min-width: 108px;
-    height: 38px;
-    padding: 0 12px;
-    font-size: 13px;
+  .controls {
+    right: 10px;
+    gap: 6px;
+  }
+
+  .theme-switch {
+    width: 54px;
+    height: 28px;
+  }
+
+  .theme-switch::before {
+    width: 20px;
+    height: 20px;
+  }
+
+  :root.is-dark .theme-switch::before {
+    transform: translateX(24px);
+  }
+
+  .language-switch {
+    width: 68px;
+    height: 28px;
+    font-size: 12px;
   }
 }

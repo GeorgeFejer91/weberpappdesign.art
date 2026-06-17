@@ -11,6 +11,8 @@ Minimalistische statische Website fuer WEBER PAPPDESIGN.
 
 Die sichtbare Typografie der SVGs ist nicht als Webfont gesetzt, sondern als Vektorpfad exportiert. Dadurch bleibt die originale Schriftform im Browser erhalten.
 
+Die Medien werden mit einer kleinen statischen Fit-Logik aus ihren nativen Breiten/Hoehen gesetzt. Das ist von [ASCILINE](https://github.com/YusufB5/ASCILINE)s Auto-Scaling-Prinzip inspiriert: die Ausgabehoehe wird aus dem Quellseitenverhaeltnis abgeleitet, damit Bilder und Video nicht gestreckt werden. ASCILINE selbst ist nicht eingebunden, weil GitHub Pages keinen Python/FastAPI/WebSocket-Backendprozess ausfuehrt.
+
 ## Lokal testen
 
 ```bash
