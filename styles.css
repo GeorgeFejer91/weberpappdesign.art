@@ -1,0 +1,146 @@
+:root {
+  --background: #ffffff;
+  --text: #050505;
+  --page-width: 980px;
+  --gutter: clamp(10px, 4vw, 48px);
+}
+
+:root.is-inverted {
+  --background: #050505;
+  --text: #ffffff;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: "Courier New", "Nimbus Mono PS", monospace;
+}
+
+.site {
+  min-height: 100vh;
+  padding: clamp(64px, 8vw, 96px) 0 clamp(20px, 5vw, 64px);
+}
+
+.sequence {
+  width: min(calc(100vw - (var(--gutter) * 2)), var(--page-width));
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(16px, 3vw, 40px);
+}
+
+.media-block {
+  position: relative;
+  margin: 0;
+}
+
+.media {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  background: #ffffff;
+}
+
+video.media {
+  aspect-ratio: 684 / 432;
+  background: #f3f3f3;
+}
+
+:root.is-inverted .media {
+  filter: invert(1);
+}
+
+.invert-toggle {
+  position: fixed;
+  z-index: 10;
+  top: clamp(12px, 2vw, 24px);
+  right: clamp(12px, 2vw, 24px);
+  min-width: 118px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #000000;
+  font: 14px/1 "Courier New", "Nimbus Mono PS", monospace;
+  cursor: pointer;
+}
+
+:root.is-inverted .invert-toggle {
+  border-color: #ffffff;
+  background: #000000;
+  color: #ffffff;
+}
+
+.invert-toggle:focus-visible,
+.email-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.email-link {
+  position: absolute;
+  display: block;
+  color: var(--text);
+}
+
+.email-link-main {
+  left: 33.8%;
+  top: 47.2%;
+  width: 32.6%;
+  height: 6.2%;
+}
+
+.email-link-footer {
+  left: 38.4%;
+  top: 72.4%;
+  width: 23.2%;
+  height: 4.8%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 540px) {
+  :root {
+    --gutter: 10px;
+  }
+
+  .site {
+    padding-top: 60px;
+    padding-bottom: 18px;
+  }
+
+  .sequence {
+    gap: 14px;
+  }
+
+  .invert-toggle {
+    min-width: 108px;
+    height: 38px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+}
