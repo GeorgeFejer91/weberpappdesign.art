@@ -121,8 +121,8 @@ button {
 }
 
 .box-grid img {
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  aspect-ratio: 4724 / 3543;
+  object-fit: contain;
   object-position: center;
   background: #ffffff;
 }
