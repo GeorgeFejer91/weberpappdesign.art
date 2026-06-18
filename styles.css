@@ -3,8 +3,9 @@
   --text: #231f20;
   --control-background: #ffffff;
   --control-border: #231f20;
-  --page-width: 548px;
-  --gutter: clamp(10px, 4vw, 48px);
+  --page-width: 1000px;
+  --content-width: 800px;
+  --gutter: clamp(12px, 4vw, 64px);
 }
 
 :root.is-dark {
@@ -30,6 +31,13 @@ body {
   background: var(--background);
   color: var(--text);
   font-family: Courier, "Courier New", "Nimbus Mono PS", monospace;
+  font-synthesis: none;
+  font-weight: 400;
+}
+
+button {
+  font: inherit;
+  font-weight: 400;
 }
 
 .site {
@@ -47,7 +55,8 @@ body {
 
 .product-sheet,
 .price-sheet {
-  width: 100%;
+  width: min(100%, var(--content-width));
+  justify-self: center;
 }
 
 .hero-image,
@@ -61,12 +70,12 @@ body {
 .price-title {
   margin: 22px 0 18px;
   color: var(--text);
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0;
 }
 
 .product-title {
-  font-size: 31px;
+  font-size: 36px;
   line-height: 1;
 }
 
@@ -82,13 +91,17 @@ body {
 
 .intro-copy {
   margin: 0 0 24px;
-  font-size: 14px;
-  line-height: 1.25;
+  font-size: 16px;
+  line-height: 1.28;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .example-copy {
   margin: 0 0 10px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.2;
 }
 
@@ -122,13 +135,13 @@ body {
 .video-label {
   margin: 20px 0 -2px;
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1;
 }
 
 .media-block {
   position: relative;
-  width: min(100%, var(--media-native-width, 800px));
+  width: min(100%, var(--content-width));
   margin: 0;
   aspect-ratio: var(--media-aspect, auto);
   justify-self: center;
@@ -157,7 +170,7 @@ video.media {
 
 .price-title {
   margin: 0 0 24px;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1;
 }
 
@@ -169,7 +182,7 @@ video.media {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.4;
 }
 
@@ -203,7 +216,7 @@ video.media {
 .frame-notes {
   border-top: 1px solid var(--text);
   padding: 7px 6px 8px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.25;
 }
 
@@ -217,13 +230,13 @@ video.media {
 .shipping-note {
   margin-top: 7px;
   text-align: right;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.2;
 }
 
 .contact-block {
   margin-top: 28px;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.45;
 }
 
@@ -259,7 +272,7 @@ video.media {
 
 .legal-footer {
   margin-top: 92px;
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.25;
 }
 
@@ -273,8 +286,7 @@ video.media {
   align-items: center;
 }
 
-.theme-switch,
-.language-switch {
+.theme-switch {
   border: 1px solid var(--control-border);
   border-radius: 6px;
   background: var(--control-background);
@@ -307,29 +319,7 @@ video.media {
   background: #ffffff;
 }
 
-.language-switch {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 74px;
-  height: 30px;
-  padding: 0;
-  overflow: hidden;
-  font: 13px/1 "Courier New", "Nimbus Mono PS", monospace;
-}
-
-.language-switch span {
-  display: grid;
-  place-items: center;
-}
-
-.language-switch[data-lang="de"] [data-lang-option="de"],
-.language-switch[data-lang="en"] [data-lang-option="en"] {
-  background: var(--text);
-  color: var(--background);
-}
-
 .theme-switch:focus-visible,
-.language-switch:focus-visible,
 .contact-email:focus-visible,
 .footer-email:focus-visible {
   outline: 2px solid currentColor;
@@ -462,7 +452,6 @@ video.media {
 
   .controls {
     right: 10px;
-    gap: 6px;
   }
 
   .theme-switch {
@@ -479,11 +468,6 @@ video.media {
     transform: translateX(24px);
   }
 
-  .language-switch {
-    width: 68px;
-    height: 28px;
-    font-size: 12px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
