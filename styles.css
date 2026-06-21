@@ -3,7 +3,6 @@
   --text: #231f20;
   --control-background: #ffffff;
   --control-border: #231f20;
-  --logo-filter: none;
   --page-width: 1000px;
   --content-width: 800px;
   --gutter: clamp(12px, 4vw, 64px);
@@ -14,7 +13,6 @@
   --text: #ffffff;
   --control-background: #050505;
   --control-border: #ffffff;
-  --logo-filter: invert(1);
   color-scheme: dark;
 }
 
@@ -44,7 +42,7 @@ button {
 
 .site {
   min-height: 100vh;
-  padding: clamp(74px, 8vw, 92px) 0 clamp(20px, 5vw, 56px);
+  padding: clamp(18px, 5vw, 48px) 0 clamp(20px, 5vw, 56px);
 }
 
 .sequence {
@@ -56,15 +54,16 @@ button {
 }
 
 .site-header {
-  position: fixed;
-  z-index: 10;
-  top: clamp(12px, 2vw, 24px);
-  left: clamp(12px, 2vw, 24px);
+  position: absolute;
+  z-index: 2;
+  top: 41%;
+  right: 3%;
+  width: clamp(70px, 13.6%, 132px);
 }
 
 .site-brand {
   display: block;
-  width: clamp(88px, 12vw, 128px);
+  width: 100%;
   line-height: 0;
 }
 
@@ -72,7 +71,7 @@ button {
   display: block;
   width: 100%;
   height: auto;
-  filter: var(--logo-filter);
+  filter: none;
 }
 
 .site-brand:focus-visible {
@@ -80,16 +79,14 @@ button {
   outline-offset: 4px;
 }
 
-@media (max-width: 1100px) {
-  .site {
-    padding-top: 132px;
-  }
-}
-
 .product-sheet,
 .price-sheet {
   width: min(100%, var(--content-width));
   justify-self: center;
+}
+
+.hero-frame {
+  position: relative;
 }
 
 .hero-image,
@@ -421,7 +418,7 @@ video.media {
   }
 
   .site {
-    padding-top: 96px;
+    padding-top: 18px;
     padding-bottom: 18px;
   }
 
@@ -491,12 +488,7 @@ video.media {
   }
 
   .site-header {
-    top: 10px;
-    left: 10px;
-  }
-
-  .site-brand {
-    width: 84px;
+    width: clamp(50px, 13.6%, 84px);
   }
 
   .theme-switch {
