@@ -58,7 +58,7 @@ button {
   z-index: 2;
   top: 41%;
   right: 3%;
-  width: clamp(70px, 13.6%, 132px);
+  width: 13.6%;
 }
 
 .site-brand {
@@ -485,10 +485,6 @@ video.media {
 
   .controls {
     right: 10px;
-  }
-
-  .site-header {
-    width: clamp(50px, 13.6%, 84px);
   }
 
   .theme-switch {
