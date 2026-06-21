@@ -8,6 +8,16 @@
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://weberpappdesign.art/">
+    <script>
+      try {
+        var url = new URL(window.location.href);
+        if (url.searchParams.has("codex")) {
+          url.searchParams.delete("codex");
+          var query = url.searchParams.toString();
+          window.history.replaceState(null, "", url.pathname + (query ? "?" + query : "") + url.hash);
+        }
+      } catch (_) {}
+    </script>
     <link rel="icon" href="assets/favicon.svg?v=20260621-5" type="image/svg+xml">
     <link rel="icon" href="assets/favicon-32.png?v=20260621-5" sizes="32x32" type="image/png">
     <link rel="icon" href="assets/favicon-16.png?v=20260621-5" sizes="16x16" type="image/png">
